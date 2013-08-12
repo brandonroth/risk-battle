@@ -17,7 +17,7 @@
 		CA15825017AF30AF00A948DA /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CA15824F17AF30AF00A948DA /* Default@2x.png */; };
 		CA15825217AF30AF00A948DA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CA15825117AF30AF00A948DA /* Default-568h@2x.png */; };
 		CA15825517AF30AF00A948DA /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA15825317AF30AF00A948DA /* MainStoryboard.storyboard */; };
-		CA15825817AF30AF00A948DA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA15825717AF30AF00A948DA /* ViewController.m */; };
+		CA15825817AF30AF00A948DA /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA15825717AF30AF00A948DA /* MainController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,8 +35,8 @@
 		CA15824F17AF30AF00A948DA /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		CA15825117AF30AF00A948DA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		CA15825417AF30AF00A948DA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		CA15825617AF30AF00A948DA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		CA15825717AF30AF00A948DA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		CA15825617AF30AF00A948DA /* MainController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainController.h; sourceTree = "<group>"; };
+		CA15825717AF30AF00A948DA /* MainController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,8 +86,8 @@
 				CA15824A17AF30AF00A948DA /* AppDelegate.h */,
 				CA15824B17AF30AF00A948DA /* AppDelegate.m */,
 				CA15825317AF30AF00A948DA /* MainStoryboard.storyboard */,
-				CA15825617AF30AF00A948DA /* ViewController.h */,
-				CA15825717AF30AF00A948DA /* ViewController.m */,
+				CA15825617AF30AF00A948DA /* MainController.h */,
+				CA15825717AF30AF00A948DA /* MainController.m */,
 				CA15824217AF30AF00A948DA /* Supporting Files */,
 			);
 			path = "Risk Battle";
@@ -175,7 +175,7 @@
 			files = (
 				CA15824817AF30AF00A948DA /* main.m in Sources */,
 				CA15824C17AF30AF00A948DA /* AppDelegate.m in Sources */,
-				CA15825817AF30AF00A948DA /* ViewController.m in Sources */,
+				CA15825817AF30AF00A948DA /* MainController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +298,7 @@
 				CA15825D17AF30AF00A948DA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
