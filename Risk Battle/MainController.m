@@ -26,7 +26,8 @@
     [self.view addGestureRecognizer:tapGesture];
 
     [self clearButtonPressed:nil];
-    [self setDiceControls];
+    [self setAttackDiceControll];
+    [self setDefendDiceControll];
 
     self.attackerArmySizeField.delegate = self;
     self.defenderArmySizeField.delegate = self;
@@ -50,8 +51,9 @@
 {
     self.attackerArmySizeField.text = @"";
     self.defenderArmySizeField.text = @"";
-    self.attackerDiceControl.selectedSegmentIndex = 2;
-    self.defenderDiceControl.selectedSegmentIndex = 1;
+
+    [self setAttackDiceControll];
+    [self setDefendDiceControll];
 }
 
 - (IBAction)battleButtonPressed:(id)sender
@@ -99,7 +101,8 @@
         [self compareAttackDie:[attacker[1] intValue]  withDefenderDice:[defender[1] intValue]];
     }
 
-    [self setDiceControls];
+    [self setAttackDiceControll];
+    [self setDefendDiceControll];
 }
 
 - (void)compareAttackDie:(int)attackerDice withDefenderDice:(int)defenderDice
@@ -118,40 +121,54 @@
 
 #pragma mark - Other Methods
 
-- (void)setDiceControls
+- (void)setAttackDiceControll
 {
     int attackArmySize = [self.attackerArmySizeField.text intValue];
-    int defenderArmySize = [self.defenderArmySizeField.text intValue];
 
     [self.attackerDiceControl setEnabled:(attackArmySize > 1) forSegmentAtIndex:0];
     [self.attackerDiceControl setEnabled:(attackArmySize > 2) forSegmentAtIndex:1];
     [self.attackerDiceControl setEnabled:(attackArmySize > 3) forSegmentAtIndex:2];
 
-    if (attackArmySize > 1)
+    int currentSelection = self.attackerDiceControl.selectedSegmentIndex;
+    
+    if (currentSelection < 0 || [self.attackerDiceControl isEnabledForSegmentAtIndex:currentSelection] == NO)
     {
-        self.attackerDiceControl.selectedSegmentIndex = 0;
-    }
+        if (attackArmySize > 1)
+        {
+            self.attackerDiceControl.selectedSegmentIndex = 0;
+        }
 
-    if (attackArmySize > 2)
-    {
-        self.attackerDiceControl.selectedSegmentIndex = 1;
-    }
+        if (attackArmySize > 2)
+        {
+            self.attackerDiceControl.selectedSegmentIndex = 1;
+        }
 
-    if (attackArmySize > 3)
-    {
-        self.attackerDiceControl.selectedSegmentIndex = 2;
+        if (attackArmySize > 3)
+        {
+            self.attackerDiceControl.selectedSegmentIndex = 2;
+        }
     }
+}
+
+- (void)setDefendDiceControll
+{
+    int defenderArmySize = [self.defenderArmySizeField.text intValue];
 
     [self.defenderDiceControl setEnabled:(defenderArmySize > 0) forSegmentAtIndex:0];
     [self.defenderDiceControl setEnabled:(defenderArmySize > 1) forSegmentAtIndex:1];
 
-    if (defenderArmySize > 0)
+    int currentSelection = self.defenderDiceControl.selectedSegmentIndex;
+
+    if (currentSelection < 0 || [self.defenderDiceControl isEnabledForSegmentAtIndex:currentSelection] == NO)
     {
-        self.defenderDiceControl.selectedSegmentIndex = 0;
-    }
-    if (defenderArmySize > 1)
-    {
-        self.defenderDiceControl.selectedSegmentIndex = 1;
+        if (defenderArmySize > 0)
+        {
+            self.defenderDiceControl.selectedSegmentIndex = 0;
+        }
+        if (defenderArmySize > 1)
+        {
+            self.defenderDiceControl.selectedSegmentIndex = 1;
+        }
     }
 }
 
@@ -160,7 +177,15 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
     [textField resignFirstResponder];
-    [self setDiceControls];
+
+    if (textField == self.attackerArmySizeField)
+    {
+        [self setAttackDiceControll];
+    }
+    else if (textField == self.defenderArmySizeField)
+    {
+        [self setDefendDiceControll];
+    }
 }
 
 @end
